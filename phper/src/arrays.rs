@@ -464,9 +464,9 @@ impl<'a> Iterator for RawIter<'a> {
                 &mut self.pos,
             ) as u32;
 
-            let iter_key = if result == PHPER_HASH_KEY_IS_STRING {
+            let iter_key = if result == PHPER_HASH_KEY_IS_STRING as u32 {
                 IterKey::ZStr(ZStr::from_mut_ptr(str_index))
-            } else if result == PHPER_HASH_KEY_IS_LONG {
+            } else if result == PHPER_HASH_KEY_IS_LONG as u32 {
                 #[allow(clippy::unnecessary_cast)]
                 IterKey::Index(num_index as u64)
             } else {
