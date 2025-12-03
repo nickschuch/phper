@@ -55,13 +55,7 @@ impl Constant {
                     );
                 }
                 Scalar::F64(f) => {
-                    zend_register_double_constant(
-                        name_ptr,
-                        name_len,
-                        *f,
-                        flags,
-                        module_number,
-                    );
+                    zend_register_double_constant(name_ptr, name_len, *f, flags, module_number);
                 }
                 Scalar::String(s) => {
                     let s_ptr = s.as_ptr() as *mut u8;

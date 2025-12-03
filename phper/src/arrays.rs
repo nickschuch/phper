@@ -13,6 +13,7 @@
 use crate::{alloc::EBox, strings::ZStr, sys::*, values::ZVal};
 use derive_more::From;
 use phper_alloc::ToRefOwned;
+use phper_sys::{PHPER_HASH_KEY_IS_LONG, PHPER_HASH_KEY_IS_STRING};
 use std::{
     fmt::{self, Debug},
     marker::PhantomData,
@@ -20,7 +21,6 @@ use std::{
     ops::Deref,
     ptr::null_mut,
 };
-use phper_sys::{PHPER_HASH_KEY_IS_STRING, PHPER_HASH_KEY_IS_LONG};
 
 /// Key for [ZArr].
 #[derive(Debug, Clone, PartialEq, From)]
