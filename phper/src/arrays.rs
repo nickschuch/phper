@@ -20,6 +20,7 @@ use std::{
     ops::Deref,
     ptr::null_mut,
 };
+use phper_sys::{PHPER_HASH_KEY_IS_STRING, PHPER_HASH_KEY_IS_LONG};
 
 /// Key for [ZArr].
 #[derive(Debug, Clone, PartialEq, From)]
@@ -463,9 +464,9 @@ impl<'a> Iterator for RawIter<'a> {
                 &mut self.pos,
             ) as u32;
 
-            let iter_key = if result == HASH_KEY_IS_STRING {
+            let iter_key = if result == PHPER_HASH_KEY_IS_STRING {
                 IterKey::ZStr(ZStr::from_mut_ptr(str_index))
-            } else if result == HASH_KEY_IS_LONG {
+            } else if result == PHPER_HASH_KEY_IS_LONG {
                 #[allow(clippy::unnecessary_cast)]
                 IterKey::Index(num_index as u64)
             } else {

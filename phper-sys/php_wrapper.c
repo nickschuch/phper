@@ -55,6 +55,12 @@ phper_init_class_entry_handler(zend_class_entry *class_ce, void *argument);
 #endif
 
 // ==================================================
+// BC for PHP 8.5:
+// ==================================================
+const int PHPER_HASH_KEY_IS_STRING = (int) HASH_KEY_IS_STRING;
+const int PHPER_HASH_KEY_IS_LONG   = (int) HASH_KEY_IS_LONG;
+
+// ==================================================
 // zval apis:
 // ==================================================
 
